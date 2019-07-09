@@ -117,7 +117,7 @@ class ObjectDetectionLabels(Labels):
 
         if len(boxes):
             boxes = np.array(
-                [box.npbox_format() for box in boxes], dtype=float)
+                [box.to_int().npbox_format() for box in boxes], dtype=float)
             class_ids = np.array(class_ids)
             scores = np.array(scores)
             labels = ObjectDetectionLabels(boxes, class_ids, scores=scores)
